@@ -59,13 +59,12 @@ export default function Artist() {
               <p className='text-zinc-400'>{artista.descricao}</p>
             </div>
           </div>
+          <div className='font-semibold text-2xl mb-4'>Músicas</div>
           <button
-            className="mb-4 bg-blue-500 text-white p-2 rounded-md"
-            onClick={() => setShowModal(true)}
-          >
+            className="mb-4 bg-green-500 text-white p-2 rounded-md"
+            onClick={() => setShowModal(true)}>
             Adicionar Música
           </button>
-          <div className='font-semibold text-2xl mb-4'>Músicas</div>
           <div className='grid grid-cols-7 gap-4'>
             {musicas.map((musica) => (
               <div key={musica.id} className='bg-white/5 p-2 rounded-md flex flex-col gap-2 hover:bg-white/10'>
@@ -80,31 +79,31 @@ export default function Artist() {
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-4 rounded-md">
+          <div className="bg-white/5 p-4 rounded-md">
             <h2 className="text-2xl mb-4">Adicionar Música</h2>
             <input
               type="text"
               placeholder="Nome"
               value={newMusic.nome}
               onChange={(e) => setNewMusic({ ...newMusic, nome: e.target.value })}
-              className="mb-2 p-2 border border-gray-300 rounded-md w-full"
+              className="mb-2 p-2 bg-zinc-900 border border-green-500 rounded-md w-full"
             />
             <input
               type="text"
               placeholder="URL da Imagem"
               value={newMusic.imagem}
               onChange={(e) => setNewMusic({ ...newMusic, imagem: e.target.value })}
-              className="mb-2 p-2 border border-gray-300 rounded-md w-full"
+              className="mb-2 p-2 bg-zinc-900 border border-green-500 rounded-md w-full"
             />
             <input
               type="text"
               placeholder="Duração"
               value={newMusic.duracao}
               onChange={(e) => setNewMusic({ ...newMusic, duracao: e.target.value })}
-              className="mb-4 p-2 border border-gray-300 rounded-md w-full"
+              className="mb-4 p-2 bg-zinc-900 border border-green-500 rounded-md w-full"
             />
             <button
-              className="bg-blue-500 text-white p-2 rounded-md mr-2"
+              className="bg-green-500 text-white p-2 rounded-md mr-2"
               onClick={handleAddMusic}
             >
               Adicionar
