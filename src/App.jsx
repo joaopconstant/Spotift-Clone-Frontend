@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Artist from './pages/Artist';
+import NewArtist from './pages/NewArtist';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/banda/:id" component={Artist} />
+            <Route path="/banda/cadastrar" component={NewArtist} />
             <Route path="/" exact component={Home} />
           </Switch>
         </div>

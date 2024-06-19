@@ -1,6 +1,8 @@
+// components/Sidebar.js
+
 import React from 'react';
-import { HomeIcon, Bookmark } from 'lucide-react';
-import { Link } from 'react-router-dom'; // Importando o Link do React Router
+import { HomeIcon, Bookmark, UserRoundPlus } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
   return (
@@ -14,6 +16,10 @@ export default function Sidebar() {
           <Bookmark />
           Your Library
         </a>
+        <Link to="/banda/cadastrar" className='flex items-center gap-3 text-sm font-semibold text-zinc-200'>
+          <UserRoundPlus />
+          Cadastrar Artista
+        </Link>
       </nav>
 
       <nav className='mt-10 pt-6 border-t border-zinc-800 flex flex-col gap-2'>
