@@ -16,7 +16,7 @@ export default function Sidebar() {
           <Bookmark />
           Your Library
         </a>
-        <Link to="/banda/cadastrar" className='flex items-center gap-3 text-sm font-semibold text-zinc-200'>
+        <Link to="/cadastrar" className='flex items-center gap-3 text-sm font-semibold text-zinc-200'>
           <UserRoundPlus />
           Cadastrar Artista
         </Link>

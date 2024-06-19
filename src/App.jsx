@@ -15,7 +15,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/banda/:id" component={Artist} />
-            <Route path="/banda/cadastrar" component={NewArtist} />
+            <Route path="/cadastrar" component={NewArtist} />
             <Route path="/" exact component={Home} />
           </Switch>
         </div>
