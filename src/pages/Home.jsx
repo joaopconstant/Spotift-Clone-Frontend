@@ -36,7 +36,7 @@ export default function Home() {
           <div className='grid grid-cols-7 gap-4 mt-7'>
             {musicas.map((musica) => (
               <div key={musica.id} className='bg-white/5 p-2 rounded-md flex flex-col gap-2 hover:bg-white/10'>
-                <img src={musica.imagem} alt={musica.nome} className='w-full h-32 object-cover rounded-md' />
+                <img src={musica.imagem} alt={musica.nome} className='w-full h-auto object-cover rounded-md' />
                 <strong className='font-semibold'>{musica.nome}</strong>
                 <Link to={`/banda/${musica.bandaId}`} className='text-sm text-zinc-400 hover:underline'>{musica.artista}</Link>
               </div>
