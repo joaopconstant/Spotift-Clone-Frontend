@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Greeting from '../components/Greetings';
 import Footer from '../components/Footer';
-
+import axios from 'axios';
 
 export default function Home() {
+  const [musicas, setMusicas] = useState([]);
+
+  useEffect(() => {
+    fetchMusicas();
+  }, []);
+
+  const fetchMusicas = async () => {
+    try {
+      const response = await axios.get('https://ibmec-cloud-backend-appservice.azurewebsites.net/musicas'); // Endpoint do seu backend
+      setMusicas(response.data); // Assume que o backend retorna um array de músicas
+    } catch (error) {
+      console.error('Erro ao buscar músicas:', error);
+    }
+  };
+
   return (
     <div className="h-screen flex flex-col">
       <div className="flex flex-1">
@@ -14,11 +29,12 @@ export default function Home() {
             <Greeting />
           </div>
           <div className='grid grid-cols-7 gap-4 mt-7'>
-            <a href='' className='bg-white/5 p-2 rounded-md flex flex-col gap-2 hover:bg-white/10'>
-              
-              <strong className='font-semibold'>Nome da Musica</strong>
-              <span className='text-sm text-zinc-400'>Nome do artista ou banda</span>
-            </a>
+            {musicas.map((musica) => (
+              <div key={musica.id} className='bg-white/5 p-2 rounded-md flex flex-col gap-2 hover:bg-white/10'>
+                <strong className='font-semibold'>{musica.nome}</strong>
+                <span className='text-sm text-zinc-400'>{musica.artista}</span>
+              </div>
+            ))}
           </div>
         </main>
       </div>
