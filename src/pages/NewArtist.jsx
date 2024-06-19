@@ -38,30 +38,30 @@ export default function NewArtist() {
         <Sidebar />
         <main className="flex-1 p-6">
           <h1 className="text-3xl font-semibold mb-6">Cadastro de Banda</h1>
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-4 px-20">
             <div>
               <label htmlFor="nomeBanda" className="block text-sm font-semibold">Nome da Banda</label>
-              <input type="text" id="nomeBanda" className="p-2 border rounded-md w-full" value={nomeBanda} onChange={(e) => setNomeBanda(e.target.value)} />
+              <input type="text" id="nomeBanda" className="p-2 bg-zinc-900 border rounded-md w-full" value={nomeBanda} onChange={(e) => setNomeBanda(e.target.value)} />
             </div>
             <div>
               <label htmlFor="descricao" className="block text-sm font-semibold">Descrição</label>
-              <textarea id="descricao" className="p-2 border rounded-md w-full" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
+              <textarea id="descricao" className="p-2 bg-zinc-900 border rounded-md w-full" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
             </div>
             <div>
               <label htmlFor="imagemBanda" className="block text-sm font-semibold">URL da Imagem da Banda</label>
-              <input type="text" id="imagemBanda" className="p-2 border rounded-md w-full" value={imagemBanda} onChange={(e) => setImagemBanda(e.target.value)} />
+              <input type="text" id="imagemBanda" className="p-2 bg-zinc-900 border rounded-md w-full" value={imagemBanda} onChange={(e) => setImagemBanda(e.target.value)} />
             </div>
             <div>
               <label htmlFor="nomeMusica" className="block text-sm font-semibold">Nome da Música</label>
-              <input type="text" id="nomeMusica" className="p-2 border rounded-md w-full" value={nomeMusica} onChange={(e) => setNomeMusica(e.target.value)} />
+              <input type="text" id="nomeMusica" className="p-2 bg-zinc-900 border rounded-md w-full" value={nomeMusica} onChange={(e) => setNomeMusica(e.target.value)} />
             </div>
             <div>
               <label htmlFor="imagemMusica" className="block text-sm font-semibold">URL da Imagem da Música</label>
-              <input type="text" id="imagemMusica" className="p-2 border rounded-md w-full" value={imagemMusica} onChange={(e) => setImagemMusica(e.target.value)} />
+              <input type="text" id="imagemMusica" className="p-2 bg-zinc-900 border rounded-md w-full" value={imagemMusica} onChange={(e) => setImagemMusica(e.target.value)} />
             </div>
             <div>
               <label htmlFor="duracao" className="block text-sm font-semibold">Duração da Música (segundos)</label>
-              <input type="number" id="duracao" className="p-2 border rounded-md w-full" value={duracao} onChange={(e) => setDuracao(e.target.value)} />
+              <input type="number" id="duracao" className="p-2 bg-zinc-900 border rounded-md w-full" value={duracao} onChange={(e) => setDuracao(e.target.value)} />
             </div>
             <div className="flex justify-end">
               <button className="bg-green-500 text-white p-2 rounded-md mr-2" onClick={handleCadastroBanda}>Cadastrar Banda</button>
