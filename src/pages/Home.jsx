@@ -14,7 +14,11 @@ export default function Home() {
   const fetchMusicas = async () => {
     try {
       const response = await axios.get('https://ibmec-cloud-backend-appservice.azurewebsites.net/musicas'); // Endpoint do seu backend
-      setMusicas(response.data); // Assume que o backend retorna um array de músicas
+      const musicasComBanda = await Promise.all(response.data.map(async (musica) => {
+        const responseBanda = await axios.get(`https://ibmec-cloud-backend-appservice.azurewebsites.net/banda/musica/${musica.id}`);
+        return { ...musica, artista: responseBanda.data };
+      }));
+      setMusicas(musicasComBanda); // Assume que o backend retorna um array de músicas
     } catch (error) {
       console.error('Erro ao buscar músicas:', error);
     }
