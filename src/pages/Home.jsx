@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Greeting from '../components/Greetings';
 import Footer from '../components/Footer';
@@ -16,7 +17,7 @@ export default function Home() {
       const response = await axios.get('https://ibmec-cloud-backend-appservice.azurewebsites.net/musicas'); // Endpoint do seu backend
       const musicasComBanda = await Promise.all(response.data.map(async (musica) => {
         const responseBanda = await axios.get(`https://ibmec-cloud-backend-appservice.azurewebsites.net/banda/musica/${musica.id}`);
-        return { ...musica, artista: responseBanda.data };
+        return { ...musica, artista: responseBanda.data.nome, bandaId: responseBanda.data.id };
       }));
       setMusicas(musicasComBanda); // Assume que o backend retorna um array de músicas
     } catch (error) {
@@ -35,9 +36,9 @@ export default function Home() {
           <div className='grid grid-cols-7 gap-4 mt-7'>
             {musicas.map((musica) => (
               <div key={musica.id} className='bg-white/5 p-2 rounded-md flex flex-col gap-2 hover:bg-white/10'>
-                {musica.imagem && <img src={musica.imagem} alt={musica.nome} className='w-full h-auto rounded-md' />}
+                <img src={musica.imagem} alt={musica.nome} className='w-full h-32 object-cover rounded-md' />
                 <strong className='font-semibold'>{musica.nome}</strong>
-                <span className='text-sm text-zinc-400'>{musica.artista}</span>
+                <Link to={`/banda/${musica.bandaId}`} className='text-sm text-zinc-400 hover:underline'>{musica.artista}</Link>
               </div>
             ))}
           </div>
